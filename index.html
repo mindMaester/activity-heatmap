@@ -13,8 +13,7 @@
 * { box-sizing: border-box; }
 body { margin: 0; padding: 8px 4px; background: transparent; color: var(--text); font: 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 #total { margin: 0 0 8px; font-size: 14px; color: var(--strong); }
-#scroll { overflow-x: auto; }
-svg { display: block; width: 100%; min-width: 640px; height: auto; }
+svg { display: block; width: 100%; height: auto; }
 svg text { fill: var(--text); font-size: 9px; }
 .cell { rx: 2; ry: 2; }
 .l0 { fill: var(--l0); } .l1 { fill: var(--l1); } .l2 { fill: var(--l2); } .l3 { fill: var(--l3); } .l4 { fill: var(--l4); }
@@ -25,7 +24,7 @@ svg text { fill: var(--text); font-size: 9px; }
 </head>
 <body>
 <p id="total"></p>
-<div id="scroll"><svg id="grid" role="img" aria-label="Календарь активности"></svg></div>
+<svg id="grid" role="img" aria-label="Календарь активности"></svg>
 <div id="legend">Меньше <i style="background:var(--l0)"></i><i style="background:var(--l1)"></i><i style="background:var(--l2)"></i><i style="background:var(--l3)"></i><i style="background:var(--l4)"></i> Больше</div>
 <div id="tip"></div>
 <script>
@@ -70,8 +69,6 @@ for (let d = new Date(start), i = 0; d <= today; d.setDate(d.getDate() + 1), i++
   rect.addEventListener("mouseleave", () => { tip.style.display = "none"; });
 }
 document.getElementById("total").textContent = `${total} за последний год`;
-const scroll = document.getElementById("scroll");
-scroll.scrollLeft = scroll.scrollWidth;
 </script>
 </body>
 </html>
